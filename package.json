@@ -1,11 +1,11 @@
 {
   "name": "azure-storage-node-promisify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "prepublish": "tsc"
+    "prepare": "tsc"
   },
   "dependencies": {
     "azure-storage": "^2.10.2"
