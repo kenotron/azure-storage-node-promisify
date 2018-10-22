@@ -1,0 +1,1 @@
+export { promisifyTableService } from './promisifyTableService';
