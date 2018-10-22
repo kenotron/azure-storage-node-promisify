@@ -11,7 +11,8 @@ const overrideMethods: (keyof azure.TableService)[] = [
   'deleteEntity',
   'executeBatch',
   'createTableIfNotExists',
-  'createTable'
+  'createTable',
+  'queryEntities'
 ];
 
 export interface PromisifiedTableService extends azure.TableService {
@@ -36,6 +37,13 @@ export interface PromisifiedTableService extends azure.TableService {
   deleteEntityAsync<T>(table: string, entityDescriptor: T): Promise<azure.ServiceResponse>;
   executeBatchAsync(table: string, batch: azure.TableBatch, options: azure.TableService.TableEntityRequestOptions): Promise<azure.TableService.BatchResult[]>;
   executeBatchAsync(table: string, batch: azure.TableBatch): Promise<azure.TableService.BatchResult[]>;
+  queryEntitiesAsync<T>(
+    table: string,
+    tableQuery: azure.TableQuery,
+    currentToken: azure.TableService.TableContinuationToken,
+    options: azure.TableService.TableEntityRequestOptions
+  ): Promise<azure.TableService.QueryEntitiesResult<T>>;
+  queryEntitiesAsync<T>(table: string, tableQuery: azure.TableQuery, currentToken: azure.TableService.TableContinuationToken): Promise<azure.TableService.QueryEntitiesResult<T>>;
 }
 
 export function promisifyTableService(originalTableService: azure.TableService) {
