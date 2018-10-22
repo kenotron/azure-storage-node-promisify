@@ -1,1 +1,1 @@
-export { promisifyTableService } from './promisifyTableService';
+export * from './promisifyTableService';

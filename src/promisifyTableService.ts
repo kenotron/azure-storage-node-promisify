@@ -14,7 +14,7 @@ const overrideMethods: (keyof azure.TableService)[] = [
   'createTable'
 ];
 
-interface PromisifiedTableService extends azure.TableService {
+export interface PromisifiedTableService extends azure.TableService {
   createTableIfNotExistsAsync(table: string, options: azure.common.RequestOptions): Promise<azure.TableService.TableResult>;
   createTableIfNotExistsAsync(table: string): Promise<azure.TableService.TableResult>;
   createTableAsync(table: string, options: azure.common.RequestOptions): Promise<azure.TableService.TableResult>;
