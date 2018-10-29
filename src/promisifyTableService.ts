@@ -40,10 +40,10 @@ export interface PromisifiedTableService extends azure.TableService {
   queryEntitiesAsync<T>(
     table: string,
     tableQuery: azure.TableQuery,
-    currentToken: azure.TableService.TableContinuationToken,
+    currentToken: azure.TableService.TableContinuationToken | null,
     options: azure.TableService.TableEntityRequestOptions
   ): Promise<azure.TableService.QueryEntitiesResult<T>>;
-  queryEntitiesAsync<T>(table: string, tableQuery: azure.TableQuery, currentToken: azure.TableService.TableContinuationToken): Promise<azure.TableService.QueryEntitiesResult<T>>;
+  queryEntitiesAsync<T>(table: string, tableQuery: azure.TableQuery, currentToken?: azure.TableService.TableContinuationToken): Promise<azure.TableService.QueryEntitiesResult<T>>;
 }
 
 export function promisifyTableService(originalTableService: azure.TableService) {
